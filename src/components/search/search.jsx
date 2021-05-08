@@ -4,6 +4,7 @@ const SearchRecipes = () => {
 
   const [search, setbuscar] = useState("")
   const [recipes, setrecipes] = useState([])
+
   useEffect(() => {
     if (search !== "") {
       fetchrecipes({ search })
@@ -25,7 +26,6 @@ const SearchRecipes = () => {
     } else {
       console.log("escribe algo")
     }
-    console.log(recipes);
   }
 
   return (
