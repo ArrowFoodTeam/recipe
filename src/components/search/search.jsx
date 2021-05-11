@@ -1,7 +1,7 @@
 import fetchrecipes from '../../services/FetchRecipes'
 import { useEffect, useState} from 'react'
-const SearchRecipes = () => {
-
+const SearchRecipes = ({ style }) => {
+  
   const [search, setbuscar] = useState("")
   const [recipes, setrecipes] = useState([])
 
@@ -14,10 +14,10 @@ const SearchRecipes = () => {
           for (const iterator of data.hits) {
             recipesArray.push(iterator.recipe)
           }
-         setrecipes(recipesArray)
+         setrecipes(recipesArray) /*ACTUALIZA EL ESTADO DEL RECIPES (RECETAS)*/ 
         })
     }
-  },[search])
+  }, [search])
   
   const handlersubmit = (event) => {
     event.preventDefault()
@@ -29,10 +29,10 @@ const SearchRecipes = () => {
   }
 
   return (
-    <>
-      <input type="text" name="recipes" id="recipes" />
-      <input type="submit" value="enviar" onClick={handlersubmit}/>
-    </>
+    <div style={style}>
+      <input type="text" name="recipes" id="recipes" placeholder={placeholder} />
+      <input type="submit" value="enviar" onClick={handlersubmit} />
+    </div>
   )
 }
 export default SearchRecipes
