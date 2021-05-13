@@ -1,24 +1,41 @@
-import Nav from 'react-bootstrap/Nav'
-const NavMenu = () => {
+import Nav from "react-bootstrap/Nav";
+const NavMenu = (object) => {
+
+  const objecto = [
+    {
+      link: "/recetasaludable",
+      description: "Recetas Saludables",
+    },
+    {
+      link: "/recetasrapidas",
+      description: "Recetas Rapidas",
+    },
+    {
+      link: "/dieta",
+      description: "Dieta",
+    },
+    {
+      link: "/nutricion",
+      description: "Nutricion",
+    },
+    {
+      link: "/busqueAvanzada",
+      description: "Busqueda Avanzada",
+    },
+  ];
+
   return (
     <>
-      <Nav justify variant="tabs" defaultActiveKey="/home">
-  <Nav.Item>
-    <Nav.Link href="/home">Active</Nav.Link>
-  </Nav.Item>
-  <Nav.Item>
-    <Nav.Link eventKey="link-1">Loooonger NavLink</Nav.Link>
-  </Nav.Item>
-  <Nav.Item>
-    <Nav.Link eventKey="link-2">Link</Nav.Link>
-  </Nav.Item>
-  <Nav.Item>
-    <Nav.Link eventKey="disabled">
-      Disabled
-    </Nav.Link>
-  </Nav.Item>
-</Nav>
+      <Nav justify variant="tabs" defaultActiveKey="/">
+        {objecto.map(iterator => {
+          return (
+            <Nav.Item key={ iterator.link}>
+              <Nav.Link href={iterator.link}>{iterator.description}</Nav.Link>
+            </Nav.Item>
+          );
+        })}
+      </Nav>
     </>
-  )
-}
-export default NavMenu
+  );
+};
+export default NavMenu;

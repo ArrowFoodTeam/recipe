@@ -1,8 +1,17 @@
 import './App.css';
 import SearchRecipes from "./components/search/search";
-import Carrusel from './components/carrusel/carrusel'
 import NavMenu from './components/nav/nav'
-import Cards from './components/Cards/cards';
+// import Cards from './components/Cards/cards';
+import Carrusel from './components/carrusel/carrusel'
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
+
 
 const style = {
   display: "flex",
@@ -13,12 +22,12 @@ const style = {
 function App() {
   return (
     <>
+      
       <div className="menu-nav">
         <NavMenu />
         <SearchRecipes style={style} />
-        <Carrusel />
-        <Cards/>
-      </div> 
+{/*         <Carrusel/> */}
+      </div>
     </>
   );
   

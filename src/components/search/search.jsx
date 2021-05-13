@@ -26,11 +26,12 @@ const SearchRecipes = ({ style }) => {
     } else {
       console.log("escribe algo")
     }
+    console.log(recipes)
   }
 
   return (
     <div style={style}>
-      <input type="text" name="recipes" id="recipes" placeholder={placeholder} />
+      <input type="text" name="recipes" id="recipes" />
       <input type="submit" value="enviar" onClick={handlersubmit} />
     </div>
   )
