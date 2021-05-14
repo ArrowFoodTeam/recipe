@@ -1,6 +1,7 @@
 import Carousel from "react-bootstrap/Carousel";
 import { useState } from "react";
 import './carrousel.css'
+
 const Carrusel = () => {
   // se puede hacer un array de imagenes y pintar las card caundo se necesite, pasando
   // como pros

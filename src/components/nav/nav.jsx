@@ -7,8 +7,8 @@ const NavMenu = (object) => {
       description: "Recetas Saludables",
     },
     {
-      link: "/recetasrapidas",
-      description: "Recetas Rapidas",
+      link: "/recetasPais",
+      description: "Recetas por pais",
     },
     {
       link: "/dieta",
@@ -17,6 +17,10 @@ const NavMenu = (object) => {
     {
       link: "/nutricion",
       description: "Nutricion",
+    },
+    {
+      link: "/tiporeceta",
+      description: "Tipo de recetas",
     },
     {
       link: "/busqueAvanzada",

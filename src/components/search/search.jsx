@@ -32,7 +32,7 @@ const SearchRecipes = ({ style }) => {
   return (
     <div style={style}>
       <input type="text" name="recipes" id="recipes" />
-      <input type="submit" value="enviar" onClick={handlersubmit} />
+      <input type="submit" value="Buscar" onClick={handlersubmit} />
     </div>
   )
 }
