@@ -1,4 +1,5 @@
 import Nav from "react-bootstrap/Nav";
+
 const NavMenu = (object) => {
 
   const objecto = [

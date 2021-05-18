@@ -1,23 +1,10 @@
-import fetchrecipes from '../../services/FetchRecipes'
-import { useEffect, useState} from 'react'
+import { useState } from 'react'
+import SearcHook from '../../hooks/Search-hook/Search-hook'
+
 const SearchRecipes = ({ style }) => {
   
   const [search, setbuscar] = useState("")
-  const [recipes, setrecipes] = useState([])
-
-  useEffect(() => {
-    if (search !== "") {
-      fetchrecipes({ search })
-        .then(response => response.json())
-        .then(data => {
-          const recipesArray = []
-          for (const iterator of data.hits) {
-            recipesArray.push(iterator.recipe)
-          }
-         setrecipes(recipesArray) /*ACTUALIZA EL ESTADO DEL RECIPES (RECETAS)*/ 
-        })
-    }
-  }, [search])
+  const [recipes] = SearcHook({search})
   
   const handlersubmit = (event) => {
     event.preventDefault()
@@ -26,8 +13,8 @@ const SearchRecipes = ({ style }) => {
     } else {
       console.log("escribe algo")
     }
-    console.log(recipes)
   }
+   console.log(recipes);
 
   return (
     <div style={style}>
