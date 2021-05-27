@@ -1,57 +1,49 @@
-import SearchRecipes from "./components/search/search";
-import NavMenu from './components/nav/nav'
-// import Cards from './components/Cards/cards';
-
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
-
 import './App.css';
+import Buscador from './components/Buscador';
+import React, { Component } from 'react';
+import Resultado from './components/Resultado';
 
+class App extends Component {
 
+  state = {
+    termino: '',
+    imagenes : []
+  }
 
-const style = {
-  display: "flex",
-  justifyContent: "space-evenly",
-  alignItems: "center",
-};
+  consultarApi = () =>{
+    const termino = this.state.termino;
+    const APP_ID="1a0fff68";
+    const APP_KEY="8e2ca551686efaf2d0a519ab8e7de94d";
+    const url = `https://api.edamam.com/search?q=${termino}&app_id=${APP_ID}&app_key=${APP_KEY}`;
+   
+    fetch(url).
+    then(datos => datos.json() ).
+    then(resultado =>this.setState({imagenes: resultado.hits}))
 
-function App() {
+  }
+
+  datosBusqueda = (termino) => {
+    this.setState({
+      termino
+    }, () => {
+      this.consultarApi();
+    })
+   }
+
+render (){
   return (
-    <>
-      <Router>
-        <div className="menu-nav">
-          <NavMenu />
-          <SearchRecipes style={style} />
-        </div>
-        <Switch>
-          <Route path="/recetasaludable">
-            <h1> pagina donde renderizara recetasaludable</h1>
-          </Route>
-          <Route path="/recetasPais">
-            <h1> pagina donde renderizara recetasPais</h1>
-          </Route>
-          <Route path="/dieta">
-            <h1> pagina donde renderizara dieta</h1>
-          </Route>
-          <Route path="/nutricion">
-            <h1> pagina donde renderizara nutricion</h1>
-          </Route>
-          <Route path="/tiporeceta">
-            <h1> pagina donde renderizara tiporeceta</h1>
-          </Route>
-          <Route path="/busqueAvanzada">
-            <h1> pagina donde renderizara busqueAvanzada</h1>
-          </Route>
-          <Route path="/">
-            <h1> pagina donde renderizara inicio</h1>
-          </Route>
-        </Switch>
-      </Router>
-    </>
+    <div className="App container">
+     <div className="jumbotron">
+       <p className="lead text-center">Buscador</p>
+       <Buscador 
+        datosBusqueda={this.datosBusqueda}
+       />
+     </div>
+     <Resultado 
+     imagenes ={this.state.imagenes}
+     />
+    </div>
   );
-  
+}
 } 
 export default App;
