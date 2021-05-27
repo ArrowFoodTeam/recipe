@@ -3,11 +3,13 @@ import React, { Component } from 'react';
 class Home extends Component {
 render (){
   return (
-    <div className="nav">
-        <div className="nav-item">Buscador</div>
-        <div className="nav-item">calorias</div>
-        <div className="nav-item">Tipo de comida</div>
-        <div className="nav-item">Tipo de cocina</div>
+    <div className="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div className="container-fluid">
+      <a className="navbar-brand" href="">Navbar</a>
+      <div className="navbar-nav me-auto">
+        <a className="nav-link active" href="#">Home</a>
+      </div>
+    </div>
     </div>
   );
 }
