@@ -15,9 +15,9 @@ class Filtros extends Component {
     const APP_KEY="8e2ca551686efaf2d0a519ab8e7de94d";
     const url = `https://api.edamam.com/search?q=${termino}&app_id=${APP_ID}&app_key=${APP_KEY}`;
    
-    fetch(url).
-    then(datos => datos.json() ).
-    then(resultado =>this.setState({imagenes: resultado.hits}))
+    fetch(url)
+    .then(datos => datos.json() )
+    .then(resultado =>this.setState({imagenes: resultado.hits}))
 
   }
 
