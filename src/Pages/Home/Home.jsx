@@ -10,7 +10,7 @@ render (){
       <a className="navbar-brand" href="">Home</a>
       <div className="navbar-nav me-auto">
         <div className="nav-nav-item">
-        <a className="nav-link active" href="">Buscardor</a> 
+        <a className="nav-link active" href="">Buscador</a> 
         </div>  
         <div className="nav-nav-item">
         <a className="nav-link active" href="">Comida por Estilo</a> 
